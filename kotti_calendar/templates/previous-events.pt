@@ -1,7 +1,7 @@
 <div tal:condition="events"
      id="upcoming-events"
      i18n:domain="kotti_calendar">
-  <h2 i18n:translate="">Previous Releases</h2>
+  <h4 i18n:translate="">Previous Releases</h4>
   <dl>
     <tal:repeat tal:repeat="event events">
       <dt class="upcoming-event">
