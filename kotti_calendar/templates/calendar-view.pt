@@ -15,7 +15,7 @@
     <div id="fullcalendar">
     </div>
 
-    <h2 tal:condition="upcoming_events" i18n:translate="upcoming_events">Upcoming events</h2>
+    <h2 tal:condition="upcoming_events" i18n:translate="upcoming_events">Upcoming Releases</h2>
     <ul tal:condition="upcoming_events">
       <li tal:repeat="event upcoming_events">
         <h3>
@@ -33,7 +33,7 @@
       </li>
     </ul>
 
-    <h2 tal:condition="past_events" i18n:translate="past_events">Past events</h2>
+    <h2 tal:condition="past_events" i18n:translate="past_events">Past Releases</h2>
     <ul tal:condition="past_events">
       <li tal:repeat="event past_events">
         <h3>

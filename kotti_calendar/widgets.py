@@ -27,3 +27,23 @@ def includeme_upcoming_events(config):
         name='upcoming-events',
         renderer='kotti_calendar:templates/upcoming-events.pt')
     assign_slot('upcoming-events', 'right')
+
+
+def previous_events(context, request):
+    now = datetime.datetime.now()
+    settings = events_settings()
+    past = or_(Event.start < now, Event.end < now)
+    events = DBSession.query(Event).filter(past).order_by(Event.start).all()
+    events = [event for event in events if\
+                has_permission('view', event, request)]
+    if len(events) > settings['events_count']:
+        events = events[:settings['events_count']]
+    return {'events': events}
+
+
+def includeme_previous_events(config):
+    config.add_view(
+        previous_events,
+        name='previous-events',
+        renderer='kotti_calendar:templates/previous-events.pt')
+    assign_slot('previous-events', 'right')

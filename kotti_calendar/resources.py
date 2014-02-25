@@ -8,6 +8,7 @@ from sqlalchemy import DateTime
 from sqlalchemy import ForeignKey
 from sqlalchemy import Integer
 from zope.interface import implements
+from pyramid.security import Allow, Everyone
 
 from kotti_calendar import _
 
@@ -46,6 +47,8 @@ class Event(Document):
         add_view=u'add_event',
         addable_to=[u'Calendar'],
         )
+
+    __acl__ = [(Allow, Everyone, 'view')]
 
     def __init__(self, start=None, end=None, all_day=False,
                  in_navigation=False, **kwargs):

@@ -1,10 +1,10 @@
 <div tal:condition="events"
-     id="previous-events"
+     id="upcoming-events"
      i18n:domain="kotti_calendar">
-  <h2 i18n:translate="">Previous Releases</h2>
+  <h2 i18n:translate="">Upcoming Releases</h2>
   <dl>
     <tal:repeat tal:repeat="event events">
-      <dt class="previous-event">
+      <dt class="upcoming-event">
           <a href="${api.url(event)}" title="${event.description}">
             ${event.title}
           </a>
