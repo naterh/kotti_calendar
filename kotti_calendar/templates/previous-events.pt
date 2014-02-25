@@ -10,7 +10,7 @@
           </a>
       </dt>
       <dd>
-          <span style='font-size: small;' tal:define="format event.all_day and api.format_date or api.format_datetime">
+          <span style='font-size: x-small;' tal:define="format event.all_day and api.format_date or api.format_datetime">
             ${format(event.start)}
             <span tal:condition="event.end">-
             ${format(event.end)}
